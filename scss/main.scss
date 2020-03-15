@@ -1,31 +1,6 @@
-$primary-color: #444;
-$secondary-color: #eece1a;
-$show-home-image: true;
-$home-image: url(../img/background1.jpeg);
-$background-opacity: 0.8;
-@mixin easeOut {
-  transition: color 1.5s ease-out;
-}
-@mixin background {
-  @if $show-home-image {
-  &.bg-img {
-      background: $home-image;
-      background-attachment: fixed;
-      background-size: cover;
-
-      .overlay {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        z-index: -1;
-        //background: $primary-color;
-        background: rgba($primary-color, $background-opacity);
-      }
-    }
-  }
-}
+@import "config";
+@import "menu";
+//@import 'overlay';
 
 * {
   box-sizing: border-box;
@@ -39,7 +14,19 @@ body {
   height: 100%;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   line-height: 1.5;
+  
 }
+//.overlay layer cover the whole body 
+      .overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+        //background: $primary-color;
+        background: rgba($primary-color, $background-opacity);
+      }
 //headings
 h1,
 h2,
@@ -64,18 +51,24 @@ a {
   color: white;
   text-decoration: none;
 }
+// heading脱离了原来的文档流，固定于viewport而定位,相当于heading被悬挂出来
 header {
   position: fixed;
+  //left:20px;
   z-index: 2;
   width: 100%;
+  //test out the background area as follow:
+ // background-color: red;
+
 }
 .text-secondary {
   color: $secondary-color;
 }
+//main (h1 NickChen,h2 small heading)
 main {
   padding: 4rem;
   height: 100%;
-  // background-color: red;
+  //background-color: red;
 
   .icons {
     margin: 1rem;
